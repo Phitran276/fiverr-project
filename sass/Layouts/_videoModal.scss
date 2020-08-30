@@ -1,0 +1,59 @@
+.modal-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(black, .65);
+    z-index: 1000;
+    display: none;
+    animation-name: modalopen;
+    animation-duration: .5s;
+
+    .video-wp{
+        width: 70%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        i{
+            color: $color-white-0;
+            margin-left: auto;
+            cursor: pointer;
+            position: absolute;
+            right: 3px;
+            top: -30px;
+            font-size: 20px;
+        }
+        video:focus{
+            outline: 0;
+        }
+    }
+
+    @include responsive('medium'){
+        .video-wp{
+            width: 80%
+        }
+    }
+    @include responsive('small'){
+        .video-wp{
+            width: 100%
+        }
+    }
+  
+}
+body.show__modal-video {
+    overflow: hidden;
+    .modal-video{
+        display: block;
+    }
+}
+
+@keyframes modalopen {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

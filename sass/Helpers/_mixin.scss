@@ -1,0 +1,125 @@
+@mixin styleText($color, $fs, $fw){
+    color:$color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin styleButton($bg-color,$border-color, $pd-y, $pd-x){
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    padding: $pd-y $pd-x;
+}
+
+@mixin hoverButton($bg-color, $color, $border-color){
+    background-color: $bg-color;
+    color: $color;
+    border-color: $border-color;
+}
+
+@mixin styleFormSearch($fs, $border-color, $fs-text, $pd, $pd-l, $fs-icon, $abs-top, $abs-left){
+    .input-group{
+        font-size:$fs;
+        border-color: $border-color;
+        position:relative;
+
+        .form-control{
+            transition: none;
+            font-size:$fs-text;
+            border-right: 0;
+            padding: $pd $pd $pd $pd-l;
+            &:focus {
+                box-shadow: none;
+                border-color: $border-color;
+            }
+        }
+        i{
+             font-size: $fs-icon;
+             position: absolute;
+             top: $abs-top;
+             left: $abs-left;
+             z-index: 5;
+             color: $color-gray-3;
+        }
+    }
+}
+
+@mixin styleFormSearch-2($width, $fs, $pd, $pd-l, $icon-top, $icon-left, $z-index){
+    width: $width;
+    position: relative;
+    .form-control{
+        padding: $pd $pd $pd $pd-l;
+        border-radius: 3px;
+        font-size: $fs;
+        transition: none;
+        
+        &::placeholder{
+            color: $color-gray-3;
+        }
+        
+        &:focus{
+            box-shadow: none;
+            outline: 0;
+            border: 1px solid $color-gray-3;
+        }
+    }
+    i{
+        font-size: $fs + 1;
+        position: absolute;
+        top: $icon-top;
+        left: $icon-left;
+        z-index: $z-index;
+        color: $color-gray-3;
+   }
+}
+
+
+@mixin styleOverlay($z-index){
+    position: relative;
+    cursor: pointer;
+    &:hover .overlay{
+        background-color: rgba($color-white-0, .15);
+    }
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right:0;
+        bottom: 0;
+        z-index: $z-index;
+        transition: all .25s;
+    }
+}
+
+@mixin styleIconPlay(){
+    position: relative;
+    .iconPlay{
+        cursor: pointer;
+        i{
+            color: $color-white-0;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+            border-radius: 50%;
+            background-color: rgba(black, .5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+}
+
+@mixin responsive($screen){
+    @if map-has-key($map: $breakpoints, $key:$screen ){
+        $value: map-get($map: $breakpoints, $key:$screen );
+        @media screen and (max-width: $value){
+            @content;
+        }
+    }
+    @else{
+        @warn "`{$screen} isn't exist in breakpoints`";
+    }
+}

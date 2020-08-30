@@ -1,0 +1,80 @@
+.pro{
+    margin: 0 $pd-6;
+    margin-bottom: 120px;
+    &__content{
+        position: relative;
+        img{
+            height: 100%;
+            width: 100%;
+            &.responsive-900{
+                display: none;
+            }
+        }
+        &--text{
+            width: 40%;
+            position: absolute;
+            left: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: $pd-8;
+            h3{
+                @include styleText($color-white-0, $fs-3, $fs-4);
+                padding-bottom: $pd-1 + 2;
+                margin: 0;
+            }
+            div{
+                padding-bottom:$pd-3;
+                display: flex;
+                align-items: center;
+                span{
+                    margin: 0;
+                    font-size: $fs-0 - 1;
+                    color: $color-white-0;
+                    margin-top: 3px;
+                }
+                img{
+                    width: 100px;
+                    margin-left: 5px;
+                }
+            }
+            
+        }
+    }
+    @include responsive('extra-large'){
+        &__content{
+            &--text{
+                width: 60%;
+            }
+        }
+    }
+    @include responsive('medium'){
+        &__content{
+            img{
+                
+                &.responsive-900-remove{
+                    display: none;
+                }
+                &.responsive-900{
+                    display: block;
+                    height: 300px!important;
+                    object-fit: cover;
+                }
+            }
+            &--text{
+                width: 70%;
+            }
+        }
+    }
+    @include responsive('small'){
+        &__content{
+            &--text{
+                width: 90%;
+                padding-left: 20px;
+                h3{
+                    font-size: $fs-4;
+                    
+                }
+            }
+        }
+    }
+}

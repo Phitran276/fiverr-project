@@ -1,0 +1,36 @@
+.button{
+    cursor: pointer;
+    &:focus{
+        outline: 0;
+    }
+}
+
+.button--green{
+   @include styleText($color-white-0, $fs-5 + 1, $fw-1);
+   @include styleButton($color-green-0, $color-green-0, $pd-0 + 1, $pd-2);
+   border-radius: 0 3px 3px 0;
+   &:hover{
+       @include hoverButton($color-green-2, $color-white-0, $color-green-2);
+   }
+   
+}
+
+.button--outline{
+    @include styleText($color-gray-1, $fs-5, $fw-2);
+    @include styleButton(transparent, $color-gray-1, $pd-0 - 1, $pd-3);
+    &:hover{
+        @include hoverButton($color-green-0, $color-white-0, $color-green-0);
+    }
+    border-radius: 3px;
+}
+
+.button--green-dark{
+    @include styleText($color-green-4, $fs-0, $fw-1);
+    @include styleButton(transparent, $color-green-4, $pd-7, $pd-4);
+    border-radius: 3px;
+    transition: all .25s;
+    &:hover{
+        @include hoverButton($color-green-4, $color-white-0, $color-green-4);
+    }
+}
+

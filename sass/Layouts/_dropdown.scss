@@ -1,0 +1,38 @@
+.main-dropdown{
+    li{
+        list-style-type: none;
+    }
+    .dropdown--title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        cursor: pointer;
+        h2{
+            margin: 0;
+            @include styleText($color-gray-10, $fs-0 - 1, $fw-5);
+        }
+        i{
+            font-size: 20px;
+            color: $color-gray-10;
+        }
+        &.rotate-90{
+            i{
+                transition: all .2s;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    //TEST
+    .main-dropdown__menu{
+        display: none;
+        padding-left: 20px;
+        
+    }
+    .sub-dropdown__menu{
+        display: none;
+        padding-left: 20px;
+    }
+    //END TEST
+}

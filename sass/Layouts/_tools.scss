@@ -1,0 +1,30 @@
+.tools{
+    padding: 0 $pd-6;
+    display:flex;
+    margin-bottom: 120px;
+    &__left{
+        width: 50%;
+        padding-right: 55px;
+    }
+    &__right{
+        width: 50%;
+        img{
+            width: 100%;
+        }
+    }
+    @include responsive('extra-large'){
+        &__left{
+            padding-right: 7%;
+        }
+    }
+    @include responsive('medium'){
+        display: block;
+        &__left{
+            width: 100%;
+            padding-right: 0;
+        }
+        &__right{
+            width: 100%;
+        }
+    }
+}
